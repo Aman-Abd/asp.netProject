@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+@model IEnumerable<Game>
+
+<div class="content">
+
+    <h3>With the purchase of each game, 10% of its value goes to charity.</h3>
+    <h2 style="color:green">@ViewData["Message"]</h2>
+
+    <div class="row">
+        @foreach (var game in Model)
+        {
+            <div class="shadow-lg p-3 mb-5 bg-white rounded col-sm">
+                <img class="img-thumbnail rounded mx-auto d-block" src="@game.Image" style="width:300px ; height:200px" />
+                <div>
+                    <h3>@game.Name</h3>
+                    <p>@game.Price $</p>
+                    <a class="btn btn-primary" href="/Home/Buy/@game.Id" style="text-decoration:none">Buy</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Users   
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div>
+        <h1>@Model.Name</h1>
+        <h3>@Model.Money $</h3>
+    </div>
+
+    <div class="shadow p-3 mb-5 bg-white rounded" style="float: right; ">
+        <p>You donated <span style="color:green; font-weight:bold">@Model.Donation</span> $ to charity.</p>
+    </div>
+
+    <div>
+        <h2>Your games</h2><br />
+        <h3 style="color:green">@ViewData["Message"]</h3>
+    </div>
+    <div class="row">
+
+        @foreach (var games in Model.Games)
+        {
+            <div class="shadow-lg p-3 mb-5 bg-white rounded col-sm">
+                <img class="img-thumbnail rounded mx-auto d-block" src="@games.Image" style="width:300px ; height:200px" />
+                <div>
+                    <h2>@games.Name</h2>
+                </div>
+
+                <a class="btn btn-danger" href="/Profile/Delete/@games.Id">Delete</a>
+            </div>
+        }
+    </div>
+</div>

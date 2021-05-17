@@ -1,0 +1,9 @@
+﻿@model List<Game>
+@{ 
+    Layout = "_Layout";
+}
+@foreach (var game in Model)
+{
+    <div>Game Name : @game.Name</div>
+    <div>Game price : @game.Price</div>
+}
